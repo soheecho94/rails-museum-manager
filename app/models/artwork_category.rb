@@ -1,0 +1,2 @@
+class ArtworkCategory < ApplicationRecord
+end
