@@ -1,0 +1,20 @@
+<%= form_for @location do |f| %>
+  <div class:"fields_with_errors">
+    <% if @location.errors.any? %>
+      <ul>
+        <% @location.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  <div class:"fields_with_errors">
+
+  <div class="field">
+    <%= f.label :name, 'Location (ex. New York, USA):' %><br>
+    <%= f.text_field :name %>
+  </div>
+  <br>
+  <div class="action">
+    <%= f.submit 'Create Location' %>
+  </div>
+<% end %>

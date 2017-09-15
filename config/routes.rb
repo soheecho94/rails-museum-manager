@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   resources :artworks
   resources :museums
   resources :users
+  resources :locations, only: [:new, :create, :show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
