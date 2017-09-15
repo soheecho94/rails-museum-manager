@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
+  root 'application#hello'
+
   resources :categories
   resources :artworks
   resources :museums
