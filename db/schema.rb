@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20170914064031) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_museuems", force: :cascade do |t|
+  create_table "user_museums", force: :cascade do |t|
     t.integer "user_id"
     t.integer "museum_id"
     t.datetime "created_at", null: false
