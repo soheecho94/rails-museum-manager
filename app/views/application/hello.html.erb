@@ -1,8 +1,22 @@
+<% if !params[:location].blank? %>
+  <% @museums = Museum.where(location: params[:location]) %>
+<% end %>
+
+<div>
+  Search by Location:
+  <%= form_tag("/", method: "get") do %>
+    <%= select_tag "location", options_from_collection_for_select(Location.all, "id", "name"), include_blank: true %>
+    <%= submit_tag "Filter" %>
+  <% end %>
+</div>
+<br>
+
 <% if user_signed_in? %>
   <%= link_to "Add Museum", new_museum_path %>
 <% end %>
 <br>
 <br>
+
 <% @museums.each do |museum| %>
   <li><%= link_to museum.name, museum_path(museum) %></li>
 <% end %>
