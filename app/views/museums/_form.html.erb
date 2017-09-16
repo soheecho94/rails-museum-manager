@@ -22,7 +22,13 @@
   <br>
 
   <div class="field">
-    <%= f.label :location_name, 'Location of Museum (ex) New York, USA):' %><br>
+    Choose a Location:<br>
+    <%= f.collection_select :location_id, Location.all, :id, :name %><br>
+  </div>
+  <br>
+
+  <div class="field">
+    <%= f.label :location_name, 'Or Add One (ex) New York, USA):' %><br>
     <%= f.text_field :location_name %>
   </div>
   <br>
