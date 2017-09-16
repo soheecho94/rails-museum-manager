@@ -6,38 +6,25 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-#User
-user_1 = User.create!(first_name: "First Name", last_name: "Last Name", email: "user@email.com", password: "password1234")
-
 #Location
-location_1 = Location.create!(name: "New York, USA")
-location_2 = Location.create!(name: "Paris, France")
+location_1 = Location.create!(name: "Vienna, Austria")
 
 #Museum
-museum_1 = Museum.create!(name: "MoMA", description: "The Museum of Modern Art is an art museum located in Midtown Manhattan in New York City, on 53rd Street between Fifth and Sixth Avenues")
-museum_2 = Museum.create!(name: "The Louvre", description: "The Louvre is the world's largest art museum and an historic monument in Paris, France. A central landmark of the city, it is located on the Right Bank of the Seine in the city's 1st arrondissement.")
+museum_1 = Museum.create!(name: "The Leopold Museum", description: "The Leopold Museum, housed in the Museumsquartier in Vienna, Austria, is home to one of the largest collections of modern Austrian art, featuring artists such as Egon Schiele, Gustav Klimt, Oskar Kokoschka and Richard Gerstl.")
 
-museum_1.location = location_1
-museum_2.location = location_2
-
-#UserMuseum
-UserMuseum.create!(user_id: user_1.id, museum_id: museum_1.id)
-UserMuseum.create!(user_id: user_1.id, museum_id: museum_2.id)
+museum_1.location = location_2
 
 #Artwork
-artwork_1 = Artwork.create!(title: "Les Desmoiselles d'Avignon", artist: "Pablo Picasso", year: 1907, description: "Les Demoiselles d'Avignon is a large oil painting created in 1907 by the Spanish artist Pablo Picasso. The work portrays five nude female prostitutes from a brothel on Carrer d'Avinyó in Barcelona.")
-artwork_2 = Artwork.create!(title: "Mona Lisa", artist: "Leonardo da Vinci", year: 1503, description: "The Mona Lisa has been described as the best known, the most visited, the most written about, the most sung about, the most parodied work of art in the world")
+artwork_2 = Artwork.create!(title: "Self-Portrait", artist: "Egon Schiele", year: 1910 , description: "This work by Egon Schiele is in every respect a unique and personal masterpiece in which the carefully considered composition and the intuitiveness of the painting play equal parts.")
 
 #Category
 oil_painting = Category.create!(name: "Oil Painting")
 portrait = Category.create!(name: "Portrait")
 modern = Category.create!(name: "Modern")
-renaissance = Category.create!(name: "Renaissance")
+figurative = Category.create!(name: "Figurative Painting")
+gouache = Category.create!(name: "Gouache on Paper")
 
 #ArtworkCategory
-ArtworkCategory.create!(artwork_id: artwork_1.id, category_id: oil_painting.id)
-ArtworkCategory.create!(artwork_id: artwork_1.id, category_id: modern.id)
-ArtworkCategory.create!(artwork_id: artwork_1.id, category_id: portrait.id)
-ArtworkCategory.create!(artwork_id: artwork_2.id, category_id: oil_painting.id)
 ArtworkCategory.create!(artwork_id: artwork_2.id, category_id: portrait.id)
-ArtworkCategory.create!(artwork_id: artwork_2.id, category_id: renaissance.id)
+ArtworkCategory.create!(artwork_id: artwork_2.id, category_id: figurative.id)
+ArtworkCategory.create!(artwork_id: artwork_2.id, category_id: gouache.id)
