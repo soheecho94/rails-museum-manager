@@ -2,4 +2,18 @@
 <p><%= @museum.location.name %></p>
 <p><%= @museum.description %></p>
 
-<%= link_to "Add Artwork", new_museum_artwork_path(@museum) %>
+<% if user_signed_in? %>
+  <%= link_to "Add Artwork", new_museum_artwork_path(@museum) %><br><br>
+<% end %>
+
+<% @museum.artworks.each do |artwork| %>
+  <li>
+    <%= artwork.title %> -
+    <%= artwork.artist %> -
+    <%= artwork.year %>
+    <%= link_to "View", museum_artwork_path(@museum, artwork) %> |
+    <% if user_signed_in? %>
+      <%= link_to "Edit", edit_museum_artwork_path(@museum, artwork) %>
+    <% end %>
+  </li>
+<% end %>

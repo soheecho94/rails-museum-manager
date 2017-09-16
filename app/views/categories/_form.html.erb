@@ -1,0 +1,23 @@
+<%= form_for @category do |f| %>
+
+  <div class:"fields_with_errors">
+    <% if @category.errors.any? %>
+      <ul>
+        <% @category.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  <div class:"fields_with_errors">
+
+  <div class="field">
+    <%= f.label :name, 'Category: (ex. Oil Painting, Modern, Renaissance, etc...)' %><br>
+    <%= f.text_field :name %>
+  </div>
+  <br>
+
+  <div class="action">
+    <%= f.submit 'Add Category' %>
+  </div>
+
+<% end %>

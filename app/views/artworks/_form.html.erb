@@ -35,6 +35,20 @@
   </div>
   <br>
 
+  <div class="field">
+    Select Categories:<br>
+    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+  </div>
+  <br>
+
+  <div class="field">
+    Add a Category:<br>
+    <%= f.fields_for :categories, @artwork.categories.build do |categories_fields| %>
+      <%= categories_fields.text_field :name %>
+    <% end %>
+  </div>
+  <br>
+
   <div class="action">
     <%= f.submit 'Add Artwork' %>
   </div>

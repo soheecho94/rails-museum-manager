@@ -2,3 +2,6 @@
 <p><%= @artwork.artist %></p>
 <p><%= @artwork.year %></p>
 <p><%= @artwork.description %></p>
+<% @artwork.categories.each do |category| %>
+  <%= category.name %>
+<% end %>
