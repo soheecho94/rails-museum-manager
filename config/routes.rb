@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'application#hello'
 
-  resources :categories
+  resources :categories [:new, :create]
   resources :artworks
   resources :museums, only: [:new, :create, :edit, :update]
   resources :museums, only: [:show] do
