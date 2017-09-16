@@ -1,4 +1,6 @@
 <%= form_for @artwork do |f| %>
+  <%= f.hidden_field :museum_id %>
+
   <div class:"fields_with_errors">
     <% if @artwork.errors.any? %>
       <ul>
@@ -30,18 +32,6 @@
   <div class="field">
     <%= f.label :description, 'Description:' %><br>
     <%= f.text_area :description %>
-  </div>
-  <br>
-
-  <div class="field">
-    Select Museum:<br>
-    <%= f.collection_select :museum_id, Museum.all, :id, :name, include_blank: "" %><br>
-  </div>
-  <br>
-
-  <div class="field">
-    <%= f.label :museum_name, 'Or Add One: (ex) MoMA)' %><br>
-    <%= f.text_field :museum_name %>
   </div>
   <br>
 

@@ -1,3 +1,5 @@
 <h2><%= @museum.name %></h2>
 <p><%= @museum.location.name %></p>
 <p><%= @museum.description %></p>
+
+<%= link_to "Add Artwork", new_museum_artwork_path(@museum) %>
