@@ -10,8 +10,17 @@ class Museum < ApplicationRecord
   has_many :artworks
   has_many :user_museums
   has_many :users, through: :user_museums
-  accepts_nested_attributes_for :location, reject_if: :all_blank
 
   validates :name, presence: true
   validates :name, uniqueness: true
+
+  def location_name=(name)
+    self.location = Location.find_or_create_by(name: name)
+  end
+
+  def location_name
+    if self.location
+      self.location
+    end
+  end
 end

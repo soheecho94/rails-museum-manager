@@ -1,3 +1,8 @@
+<% if user_signed_in? %>
+  <%= link_to "Add Museum", new_museum_path %>
+<% end %>
+<br>
+<br>
 <% @museums.each do |museum| %>
-  <li><%= museum.name %></li>
+  <li><%= link_to museum.name, museum_path(museum) %></li>
 <% end %>
