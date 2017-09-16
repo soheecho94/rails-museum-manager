@@ -3,6 +3,7 @@
 <p><%= @museum.description %></p>
 
 <% if user_signed_in? %>
+  <%= link_to "Edit Museum", edit_museum_path(@museum) %> |
   <%= link_to "Add Artwork", new_museum_artwork_path(@museum) %><br><br>
 <% end %>
 
@@ -11,9 +12,9 @@
     <%= artwork.title %> -
     <%= artwork.artist %> -
     <%= artwork.year %>
-    <%= link_to "View", museum_artwork_path(@museum, artwork) %> |
+    <%= link_to "View", museum_artwork_path(@museum, artwork) %>
     <% if user_signed_in? %>
-      <%= link_to "Edit", edit_museum_artwork_path(@museum, artwork) %>
+      | <%= link_to "Edit", edit_museum_artwork_path(@museum, artwork) %>
     <% end %>
   </li>
 <% end %>
