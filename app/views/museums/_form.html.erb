@@ -23,7 +23,7 @@
 
   <div class="field">
     Choose a Location:<br>
-    <%= f.collection_select :location_id, Location.all, :id, :name %><br>
+    <%= f.collection_select :location_id, Location.all, :id, :name, include_blank: "" %><br>
   </div>
   <br>
 

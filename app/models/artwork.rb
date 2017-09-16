@@ -11,4 +11,14 @@ class Artwork < ApplicationRecord
   belongs_to :museum
   has_many :artwork_categories
   has_many :categories, through: :artwork_categories
+
+  def museum_name=(name)
+    self.museum = Museum.find_or_create_by(name: name)
+  end
+
+  def museum_name
+    if self.museum
+      self.museum
+    end
+  end
 end
