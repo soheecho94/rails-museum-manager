@@ -1,10 +1,10 @@
-<%= form_for @artwork do |f| %>
+<%= form_for artwork do |f| %>
   <%= f.hidden_field :museum_id %>
 
   <div class:"fields_with_errors">
-    <% if @artwork.errors.any? %>
+    <% if artwork.errors.any? %>
       <ul>
-        <% @artwork.errors.full_messages.each do |msg| %>
+        <% artwork.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
@@ -43,13 +43,13 @@
 
   <div class="field">
     Add a Category:<br>
-    <%= f.fields_for :categories, @artwork.categories.build do |categories_fields| %>
+    <%= f.fields_for :categories, artwork.categories.build do |categories_fields| %>
       <%= categories_fields.text_field :name %>
     <% end %>
   </div>
   <br>
 
   <div class="action">
-    <%= f.submit 'Add Artwork' %>
+    <%= f.submit %>
   </div>
 <% end %>

@@ -22,4 +22,10 @@ class Artwork < ApplicationRecord
       self.museum
     end
   end
+
+  def categories_attributes=(attributes_hash)
+    if attributes_hash["0"]["name"].strip != ""
+      self.categories.create(name: name)
+    end
+  end
 end

@@ -1,3 +1,5 @@
+require 'pry'
+
 class ArtworksController < ApplicationController
   def new
     @artwork = Artwork.new(museum_id: params[:museum_id])
@@ -17,6 +19,29 @@ class ArtworksController < ApplicationController
     if params[:museum_id]
       @museum = Museum.find_by(id: params[:museum_id])
       @artwork = @museum.artworks.find_by(id: params[:id])
+    end
+  end
+
+  def edit
+    if params[:museum_id]
+      @museum = Museum.find_by(id: params[:museum_id])
+      if @museum.nil?
+        redirect_to root_path, alert: "Museum Not Found"
+      else
+        @artwork = @museum.artworks.find_by(id: params[:id])
+      end
+    else
+      @artwork = Artwork.find(params[:id])
+    end
+  end
+
+  def update
+    @museum = Museum.find_by(id: params[:artwork][:museum_id])
+    @artwork = @museum.artworks.find_by(id: params[:id])
+    if @artwork.update(artwork_params)
+      redirect_to museum_artwork_path(@museum, @artwork)
+    else
+      render :edit
     end
   end
 
