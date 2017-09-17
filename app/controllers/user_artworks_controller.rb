@@ -8,4 +8,10 @@ class UserArtworksController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def destroy
+    @userartwork = UserArtwork.find(params[:id])
+    @userartwork.delete
+    redirect_to user_path(current_user)
+  end
 end
