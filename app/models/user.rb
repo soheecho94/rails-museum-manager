@@ -14,4 +14,8 @@ class User < ApplicationRecord
 
   has_many :user_artworks
   has_many :artworks, through: :user_artworks
+
+  def username
+    self.email.split("@")[0]
+  end
 end
