@@ -1,0 +1,9 @@
+<h2><%= @category.name %></h2>
+
+<p>
+  <% @category.artworks.each do |artwork| %>
+    <li>
+      <%= link_to "#{artwork.title} |  #{artwork.artist} | #{artwork.year}", museum_artwork_path(artwork.museum, artwork) %>
+    </li>
+  <% end %>
+</p>

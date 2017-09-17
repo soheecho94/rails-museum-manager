@@ -1,9 +1,9 @@
-<%= form_for @category do |f| %>
+<%= form_for category do |f| %>
 
   <div class:"fields_with_errors">
-    <% if @category.errors.any? %>
+    <% if category.errors.any? %>
       <ul>
-        <% @category.errors.full_messages.each do |msg| %>
+        <% category.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
