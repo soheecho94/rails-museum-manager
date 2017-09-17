@@ -7,9 +7,7 @@
 
 class Museum < ApplicationRecord
   belongs_to :location
-  has_many :artworks
-  has_many :user_museums
-  has_many :users, through: :user_museums
+  has_many :artworks, dependent: :destroy
 
   validates :name, presence: true
   validates :name, uniqueness: true

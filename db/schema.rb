@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170915052757) do
+ActiveRecord::Schema.define(version: 20170917082754) do
 
   create_table "artwork_categories", force: :cascade do |t|
     t.integer "artwork_id"
@@ -45,13 +45,6 @@ ActiveRecord::Schema.define(version: 20170915052757) do
     t.string "name"
     t.text "description"
     t.integer "location_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "user_museums", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "museum_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
