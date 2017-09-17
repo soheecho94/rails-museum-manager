@@ -25,7 +25,7 @@ class Artwork < ApplicationRecord
 
   def categories_attributes=(attributes_hash)
     if attributes_hash["0"]["name"].strip != ""
-      self.categories.create(name: name)
+      self.categories.create(name: attributes_hash["0"]["name"])
     end
   end
 end
