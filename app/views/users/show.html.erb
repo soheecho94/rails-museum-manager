@@ -1,0 +1,9 @@
+<h2><%= @user.email %>'s list of artworks:</h2>
+
+<p>
+  <% @user.user_artworks.each do |user_artwork| %>
+    <li>
+      <%= link_to "#{user_artwork.artwork.title} | #{user_artwork.artwork.artist} | #{user_artwork.artwork.year}", museum_artwork_path(user_artwork.artwork.museum, user_artwork.artwork)  %> 
+    </li>
+  <% end %>
+</p>

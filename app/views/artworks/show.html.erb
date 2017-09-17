@@ -2,9 +2,16 @@
 <p><strong>Artist:</strong> <%= @artwork.artist %></p>
 <p><strong>Year Created:</strong> <%= @artwork.year %></p>
 <p><strong>Description:</strong> <%= @artwork.description %></p>
+
 <p>
   <strong>Categories:</strong>
   <% @artwork.categories.each do |category| %>
     <%= link_to category.name, category_path(category) %> |
+  <% end %>
+</p>
+
+<p>
+  <% if user_signed_in? %>
+    <%= button_to 'Add to Profile', user_artworks_path(artwork_id: @artwork) %>
   <% end %>
 </p>
