@@ -12,4 +12,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :user_artworks
+  has_many :artworks, through: :user_artworks
 end

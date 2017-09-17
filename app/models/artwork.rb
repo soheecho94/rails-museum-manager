@@ -11,6 +11,9 @@ class Artwork < ApplicationRecord
   belongs_to :museum
   has_many :artwork_categories
   has_many :categories, through: :artwork_categories
+  has_many :user_artworks
+  has_many :users, through: :user_artworks
+
   accepts_nested_attributes_for :categories
 
   def museum_name=(name)
