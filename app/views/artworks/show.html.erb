@@ -1,3 +1,7 @@
+<div class="add">
+  <%= link_to "Edit", edit_museum_artwork_path(@artwork.museum, @artwork) %>
+</div>
+
 <div class="show">
   <h2><%= @artwork.title %></h2>
   <p id=artwork><strong>ARTIST:</strong> <%= @artwork.artist %></p>
