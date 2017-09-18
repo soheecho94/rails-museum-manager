@@ -1,21 +1,31 @@
-<h2><%= @museum.name %></h2>
-<p><%= @museum.location.name %></p>
-<p><%= @museum.description %></p>
+<div class="museum">
+  <h2><%= @museum.name %></h2>
+  <p id="location"><%= @museum.location.name %></p>
+  <p><%= @museum.description %></p>
+</div>
 
-<% if user_signed_in? %>
-  <%= link_to "Edit Museum", edit_museum_path(@museum) %> |
-  <%= link_to "Add Artwork", new_museum_artwork_path(@museum) %> |
-  <%= link_to "Add Category", new_category_path %><br><br>
-<% end %>
+<div class="add">
+  <% if user_signed_in? %>
+    <%= link_to "Edit Museum", edit_museum_path(@museum) %> |
+    <%= link_to "Add Artwork", new_museum_artwork_path(@museum) %> |
+    <%= link_to "Add Category", new_category_path %><br><br>
+  <% end %>
+</div>
 
-<% @museum.artworks.each do |artwork| %>
-  <li>
-    <%= artwork.title %> -
-    <%= artwork.artist %> -
-    <%= artwork.year %>
-    <%= link_to "View", museum_artwork_path(@museum, artwork) %>
-    <% if user_signed_in? %>
-      | <%= link_to "Edit", edit_museum_artwork_path(@museum, artwork) %>
+<div class="artwork_list">
+  <h3>Collection</h3>
+  <ul>
+    <% @museum.artworks.each do |artwork| %>
+      <li>
+        <%= artwork.title %> -
+        <%= artwork.artist %> -
+        <%= artwork.year %>
+        <br>
+        <%= link_to "View", museum_artwork_path(@museum, artwork) %>
+        <% if user_signed_in? %>
+          | <%= link_to "Edit", edit_museum_artwork_path(@museum, artwork) %>
+        <% end %>
+      </li>
     <% end %>
-  </li>
-<% end %>
+  </ul>
+</div>

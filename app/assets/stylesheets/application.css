@@ -26,15 +26,10 @@ nav {
   text-align: center;
   text-transform: uppercase;
   font-size: 15px;
+  margin-bottom: 40px;
  }
 
-nav ul a:link {
-  color: grey;
-  letter-spacing: 1px;
-  text-decoration: none;
-}
-
-nav ul a:visited {
+nav ul a {
   color: grey;
   letter-spacing: 1px;
   text-decoration: none;
@@ -42,14 +37,10 @@ nav ul a:visited {
 
 nav ul a:hover {
   color: #86AF49;
-  letter-spacing: 1px;
-  text-decoration: underline;
 }
 
 nav ul a:active {
   color: #DF5666;
-  letter-spacing: 1px;
-  text-decoration: underline;
 }
 
 /* home page */
@@ -72,25 +63,15 @@ div#museum_list ul li {
   margin: 2px;
 }
 
-div#museum_list ul li a:link {
+div#museum_list ul li a {
   color: grey;
-  font-size: 20px;
-  text-transform: uppercase;
-  text-decoration: none;
-}
-
-div#museum_list ul li a:visited {
-  color: grey;
-  font-size: 20px;
+  font-size: 25px;
   text-transform: uppercase;
   text-decoration: none;
 }
 
 div#museum_list ul li a:hover {
   color: #DF5666;
-  font-size: 20px;
-  text-transform: uppercase;
-  text-decoration: none;
 }
 
 /* add links */
@@ -111,4 +92,43 @@ div.add a:hover {
   color: #90A7D0;
   font-size: 14px;
   text-decoration: none;
+}
+
+/* museum show page */
+div.museum h2 {
+  color: #35363B;
+  font-size: 30px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+div.museum p {
+  color: #494846;
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+
+div.museum p#location {
+  text-transform: uppercase;
+}
+
+div.artwork_list h3 {
+  text-transform: uppercase;
+}
+
+div.artwork_list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+div.artwork_list ul li a {
+  color: grey;
+  font-size: 14px;
+  text-transform: lowercase;
+  text-decoration: none;
+}
+
+div.artwork_list ul li a:hover {
+  color: #DF5666;
 }
