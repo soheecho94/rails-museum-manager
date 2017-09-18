@@ -14,10 +14,18 @@
  *= require_self
  */
 
+/* page content */
+div.content {
+    text-align: center;
+    max-width: 500px;
+    margin: auto;
+}
+
 /* nav bar */
 nav {
   text-align: center;
   text-transform: uppercase;
+  font-size: 15px;
  }
 
 nav ul a:link {
@@ -42,4 +50,65 @@ nav ul a:active {
   color: #DF5666;
   letter-spacing: 1px;
   text-decoration: underline;
+}
+
+/* home page */
+div.filter p {
+  color: grey;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0px;
+}
+
+div#museum_list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+div#museum_list ul li {
+  letter-spacing: 1px;
+  margin: 2px;
+}
+
+div#museum_list ul li a:link {
+  color: grey;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+div#museum_list ul li a:visited {
+  color: grey;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+div#museum_list ul li a:hover {
+  color: #DF5666;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* add links */
+div.add a:link {
+  color: grey;
+  font-size: 14px;
+  text-transform: lowercase;
+  text-decoration: none;
+}
+
+div.add a:visited {
+  color: grey;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+div.add a:hover {
+  color: #90A7D0;
+  font-size: 14px;
+  text-decoration: none;
 }
