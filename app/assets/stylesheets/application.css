@@ -13,3 +13,33 @@
  *= require_tree .
  *= require_self
  */
+
+/* nav bar */
+nav {
+  text-align: center;
+  text-transform: uppercase;
+ }
+
+nav ul a:link {
+  color: grey;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+nav ul a:visited {
+  color: grey;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+nav ul a:hover {
+  color: #86AF49;
+  letter-spacing: 1px;
+  text-decoration: underline;
+}
+
+nav ul a:active {
+  color: #DF5666;
+  letter-spacing: 1px;
+  text-decoration: underline;
+}

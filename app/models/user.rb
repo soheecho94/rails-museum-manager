@@ -18,4 +18,8 @@ class User < ApplicationRecord
   def username
     self.email.split("@")[0]
   end
+
+  def self.most_artworks
+    
+  end
 end
