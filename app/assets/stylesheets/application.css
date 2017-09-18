@@ -1,3 +1,14 @@
+/*a {
+  color: grey;
+  font-size: 14px;
+  text-transform: lowercase;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #DF5666;
+}*/
+
 /* page content */
 div.content {
     text-align: center;
@@ -124,7 +135,7 @@ div.categories_list a:hover {
   color: #58C7D3;
 }
 
-div.action {
+div.actions {
   margin-top: 20px;
 }
 
@@ -177,4 +188,47 @@ a#remove {
 
 a#remove:hover {
   color: #90A7D0;
+}
+
+/* form */
+div.field input[type=text]{
+    text-align: center;
+    width: 50%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+div.field textarea {
+    width: 50%;
+    height: 100px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border: 0.5px solid #ccc;
+    resize: none;
+}
+
+
+/* sign in & sign up */
+h2 {
+  color: #35363B;
+  font-size: 30px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+div.field input[type=email]{
+    text-align: center;
+    width: 50%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+div.field input[type=password]{
+    text-align: center;
+    width: 50%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
 }
