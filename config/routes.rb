@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root 'application#hello'
 
   resources :categories, only: [:index, :new, :create, :show]
-  resources :artworks
-  resources :museums, only: [:new, :create, :edit, :update]
+  resources :artworks, only: [:create, :update]
+  resources :museums, only: [:new, :create, :edit, :update, :destroy]
   resources :museums, only: [:show] do
     resources :artworks
   end

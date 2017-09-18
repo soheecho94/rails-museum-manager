@@ -29,6 +29,12 @@ class MuseumsController < ApplicationController
     end
   end
 
+  def destroy
+    @museum = Museum.find(params[:id])
+    @museum.destroy
+    redirect_to root_path
+  end
+
   private
     def museum_params
       params.require(:museum).permit(:name, :description, :location_name, :location_id)
