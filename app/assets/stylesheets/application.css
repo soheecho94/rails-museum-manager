@@ -95,20 +95,20 @@ div.add a:hover {
 }
 
 /* museum show page */
-div.museum h2 {
+div.show h2 {
   color: #35363B;
   font-size: 30px;
   text-transform: uppercase;
   margin-bottom: 5px;
 }
 
-div.museum p {
+div.show p {
   color: #494846;
   font-size: 16px;
   margin-bottom: 25px;
 }
 
-div.museum p#location {
+div.show p#location {
   text-transform: uppercase;
 }
 
@@ -132,3 +132,20 @@ div.artwork_list ul li a {
 div.artwork_list ul li a:hover {
   color: #DF5666;
 }
+
+/* artwork show page */
+div.show p#artwork {
+  margin: 10px;
+}
+
+div.categories_list a {
+  color: grey;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+div.categories_list a:hover {
+  color: #58C7D3;
+}
+
+/* category show page */
