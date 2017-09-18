@@ -12,8 +12,10 @@ class Museum < ApplicationRecord
   validates :name, presence: true
   validates :name, uniqueness: true
 
-  def location_name=(name)
-    self.location = Location.find_or_create_by(name: name)
+  def location_name=(location_name)
+    if location_id == ""
+      self.location = Location.find_or_create_by(name: location_name)
+    end
   end
 
   def location_name

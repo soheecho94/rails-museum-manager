@@ -28,7 +28,10 @@ class Artwork < ApplicationRecord
 
   def categories_attributes=(attributes_hash)
     if attributes_hash["0"]["name"].strip != ""
-      self.categories.create(name: attributes_hash["0"]["name"])
+      attributes_hash.values.each do |attribute|
+        category = Category.find_or_create_by(attribute)
+        self.categories << category
+      end
     end
   end
 end
