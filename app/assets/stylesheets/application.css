@@ -49,7 +49,7 @@ div#museum_list ul li {
 
 div#museum_list ul li a {
   color: grey;
-  font-size: 25px;
+  font-size: 30px;
   text-transform: uppercase;
   text-decoration: none;
 }
@@ -152,6 +152,20 @@ div.artwork_list ul a:hover {
 
 /* category index */
 
+div.categories_list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+div.categories_list ul li {
+  margin: 7.5px;
+}
+
+div.categories_list a#name {
+  font-size: 20px;
+  text-transform: uppercase;
+}
 
 /* user show page */
 a#remove {

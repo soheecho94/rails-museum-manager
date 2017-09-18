@@ -1,9 +1,11 @@
-<h2>Choose a Category:</h2>
+<div class="show">
+  <h2>Choose a Category:</h2>
+</div>
 
-<p>
+<div class="categories_list">
   <ul>
     <% @categories.each do |category| %>
-      <li><%= link_to category.name, category_path(category) %></li>
+      <li><%= link_to category.name, category_path(category), id: "name" %></li>
     <% end %>
   </ul>
-</p>
+</div>
