@@ -22,7 +22,7 @@
 
 <div id="museum_list">
   <ul>
-    <% @museums.each do |museum| %>
+    <% @museums.alphabetical.each do |museum| %>
       <li><%= link_to museum.name, museum_path(museum) %></li>
     <% end %>
   </ul>

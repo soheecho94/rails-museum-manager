@@ -34,4 +34,5 @@ class Artwork < ApplicationRecord
       end
     end
   end
+
 end

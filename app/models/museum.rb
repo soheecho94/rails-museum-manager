@@ -23,4 +23,8 @@ class Museum < ApplicationRecord
       self.location
     end
   end
+
+  def self.alphabetical
+    order('name ASC')
+  end
 end
