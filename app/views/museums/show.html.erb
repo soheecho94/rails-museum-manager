@@ -4,7 +4,7 @@
   <p><%= @museum.description %></p>
 </div>
 
-<div class="add">
+<div class="add" id="add">
   <% if user_signed_in? %>
     <%= link_to "Edit Museum", edit_museum_path(@museum) %> |
     <%= link_to "Add Artwork", new_museum_artwork_path(@museum) %> |
@@ -12,7 +12,7 @@
   <% end %>
 </div>
 
-<div class="artwork_list">
+<div class="collection_list">
   <h3>Collection</h3>
   <ul>
     <% @museum.artworks.each do |artwork| %>

@@ -1,9 +1,13 @@
-<h2><%= @category.name %></h2>
+<div class="show">
+  <h2><%= @category.name %></h2>
+</div>
 
-<p>
-  <% @category.artworks.each do |artwork| %>
-    <li>
-      <%= link_to "#{artwork.title} |  #{artwork.artist} | #{artwork.year}", museum_artwork_path(artwork.museum, artwork) %>
-    </li>
-  <% end %>
-</p>
+<div class="artwork_list">
+  <ul>
+    <% @category.artworks.each do |artwork| %>
+      <li>
+        <%= link_to "#{artwork.title} |  #{artwork.artist} | #{artwork.year}", museum_artwork_path(artwork.museum, artwork) %>
+      </li>
+    <% end %>
+  </ul>
+</div>

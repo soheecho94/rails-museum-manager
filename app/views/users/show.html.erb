@@ -1,10 +1,14 @@
-<h2><%= @user.username %>'s list of artworks:</h2>
+<div class="show">
+  <h2><%= @user.username %>'s list of artworks:</h2>
+</div>
 
-<p>
-  <% @user.user_artworks.each do |user_artwork| %>
-    <li>
-      <%= link_to "#{user_artwork.artwork.title} | #{user_artwork.artwork.artist} | #{user_artwork.artwork.year}", museum_artwork_path(user_artwork.artwork.museum, user_artwork.artwork)%> -
-      <%= link_to "Remove", user_artwork_path(user_artwork), method: "delete" %><br>
-    </li>
-  <% end %>
-</p>
+<div class="artwork_list">
+  <ul>
+    <% @user.user_artworks.each do |user_artwork| %>
+      <li>
+        <%= link_to "#{user_artwork.artwork.title} | #{user_artwork.artwork.artist} | #{user_artwork.artwork.year}", museum_artwork_path(user_artwork.artwork.museum, user_artwork.artwork)%><br>
+        <%= link_to "Remove", user_artwork_path(user_artwork), method: "delete", id: "remove" %><br>
+      </li>
+    <% end %>
+  </ul>
+</div>
