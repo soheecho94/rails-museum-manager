@@ -1,30 +1,13 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# location
+location = Location.create!(name: "New York, USA")
 
-#Location
-location_1 = Location.create!(name: "Vienna, Austria")
+# museum
+museum = Museum.create!(name: "Metropolitan Museum of Art", location_id: location.id, description: "The Metropolitan Museum of Art was founded on April 13, 1870, 'to be located in the City of New York, for the purpose of establishing and maintaining in said city a Museum and library of art, of encouraging and developing the study of the fine arts, and the application of arts to manufacture and practical life, of advancing the general knowledge of kindred subjects, and, to that end, of furnishing popular instruction.'")
 
-#Museum
-museum_1 = Museum.create!(name: "The Leopold Museum", description: "The Leopold Museum, housed in the Museumsquartier in Vienna, Austria, is home to one of the largest collections of modern Austrian art, featuring artists such as Egon Schiele, Gustav Klimt, Oskar Kokoschka and Richard Gerstl.")
-
-museum_1.location = location_2
-
-#Artwork
-artwork_2 = Artwork.create!(title: "Self-Portrait", artist: "Egon Schiele", year: 1910 , description: "This work by Egon Schiele is in every respect a unique and personal masterpiece in which the carefully considered composition and the intuitiveness of the painting play equal parts.")
-
-#Category
+# categories
 oil_painting = Category.create!(name: "Oil Painting")
-portrait = Category.create!(name: "Portrait")
-modern = Category.create!(name: "Modern")
-figurative = Category.create!(name: "Figurative Painting")
-gouache = Category.create!(name: "Gouache on Paper")
 
-#ArtworkCategory
-ArtworkCategory.create!(artwork_id: artwork_2.id, category_id: portrait.id)
-ArtworkCategory.create!(artwork_id: artwork_2.id, category_id: figurative.id)
-ArtworkCategory.create!(artwork_id: artwork_2.id, category_id: gouache.id)
+# artwork
+artwork = Artwork.create!(title: "Oedipus and the Sphinx", artist: "Gustav Moreau", year: "1864", museum_id: museum.id, description: "Moreau, at mid-career, made his mark with this painting at the Salon of 1864. It represents the Greek hero Oedipus confronting the Sphinx outside Thebes: he must solve her riddle to save his life and those of the besieged Thebans. Remains of victims who failed the test appear at bottom right. Moreau's mythological theme and archaizing style reflect his admiration for Ingres’s 1808 version of the same subject and for the work of the early Renaissance painter Andrea Mantegna. In emulating these exemplars, Moreau diverged from the Realist sensibilities shaping French art in the 1860s.")
+
+artwork_categories = ArtworkCategory.create!(artwork_id: artwork.id, category_id: oil_painting.id)
