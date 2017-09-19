@@ -1,5 +1,11 @@
+<div class="add">
+  <% if user_signed_in? %>
+    <%= link_to "Add Category", new_category_path %>
+  <% end %>
+</div>
+
 <div class="show">
-  <h2>Choose a Category:</h2>
+  <h2>Categories</h2>
 </div>
 
 <div class="categories_list">

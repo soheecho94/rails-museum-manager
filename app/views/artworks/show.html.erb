@@ -1,5 +1,7 @@
 <div class="add">
-  <%= link_to "Edit", edit_museum_artwork_path(@artwork.museum, @artwork) %>
+  <% if user_signed_in? %>
+    <%= link_to "Edit", edit_museum_artwork_path(@artwork.museum, @artwork) %>
+  <% end %>
 </div>
 
 <div class="show">

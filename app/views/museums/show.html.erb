@@ -8,8 +8,7 @@
   <% if user_signed_in? %>
     <%= link_to "Edit Museum", edit_museum_path(@museum) %> |
     <%= link_to "Remove Museum", museum_path(@museum), method: "delete" %> |
-    <%= link_to "Add Artwork", new_museum_artwork_path(@museum) %> |
-    <%= link_to "Add Category", new_category_path %><br><br>
+    <%= link_to "Add Artwork", new_museum_artwork_path(@museum) %><br><br>
   <% end %>
 </div>
 

@@ -12,19 +12,22 @@ class Museum < ApplicationRecord
   validates :name, presence: true
   validates :name, uniqueness: true
 
-  def location_name=(location_name)
-    if location_id == ""
-      self.location = Location.find_or_create_by(name: location_name)
-    end
-  end
+  accepts_nested_attributes_for :location
 
-  def location_name
-    if self.location
-      self.location
+  def location_attributes=(attributes_hash)
+    if attributes_hash["name"].strip != ""
+      attributes_hash.values.each do |attribute|
+        location = Location.find_or_create_by(name: attribute)
+        self.location = location
+      end
     end
   end
 
   def self.alphabetical
     order('name ASC')
+  end
+
+  def self.most_artworks
+    includes(:artworks)
   end
 end
