@@ -1,5 +1,3 @@
-require 'pry'
-
 class ArtworksController < ApplicationController
   def new
     @artwork = Artwork.new(museum_id: params[:museum_id])
@@ -17,19 +15,15 @@ class ArtworksController < ApplicationController
 
   def show
     if params[:museum_id]
-      @museum = Museum.find_by(id: params[:museum_id])
-      @artwork = @museum.artworks.find_by(id: params[:id])
+      museum_variable
+      artwork_variable
     end
   end
 
   def edit
     if params[:museum_id]
-      @museum = Museum.find_by(id: params[:museum_id])
-      if @museum.nil?
-        redirect_to root_path, alert: "Museum Not Found"
-      else
-        @artwork = @museum.artworks.find_by(id: params[:id])
-      end
+      museum_variable
+      artwork_variable
     else
       @artwork = Artwork.find(params[:id])
     end
@@ -46,15 +40,23 @@ class ArtworksController < ApplicationController
   end
 
   def destroy
-    museum = Museum.find_by(id: params[:museum_id])
-    artwork = museum.artworks.find_by(id: params[:id])
-    artwork.destroy
-    redirect_to museum_path(museum)
+    museum_variable
+    artwork_variable
+    @artwork.destroy
+    redirect_to museum_path(@museum)
   end
 
 
   private
     def artwork_params
       params.require(:artwork).permit(:title, :artist, :year, :description, :museum_id, category_ids:[], categories_attributes: [:name])
+    end
+
+    def museum_variable
+      @museum = Museum.find_by(id: params[:museum_id])
+    end
+
+    def artwork_variable
+      @artwork = museum_variable.artworks.find_by(id: params[:id])
     end
 end
