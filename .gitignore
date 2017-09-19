@@ -22,5 +22,4 @@
 
 .byebug_history
 
-# ignore 
-/config/initializers/devise.rb
+# ignore
