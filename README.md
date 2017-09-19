@@ -1,24 +1,9 @@
-# README
+# Museum Manager
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Museum Manager: It’s designed to be a collaborative project for users to create an online database of museums and artworks. Once logged in, users can add museums and artworks. You can keep track of your favorite artworks in your profile page. 
 
-Things you may want to cover:
+Make sure you run `gem install rails`, `cd museum-manager` and run `bundle install`.
 
-* Ruby version
+Run `rake db:migrate` and `rake db:seed` to get some data loaded to the database.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Run `rails server` to get started!
