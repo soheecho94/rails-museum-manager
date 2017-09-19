@@ -45,6 +45,14 @@ class ArtworksController < ApplicationController
     end
   end
 
+  def destroy
+    museum = Museum.find_by(id: params[:museum_id])
+    artwork = museum.artworks.find_by(id: params[:id])
+    artwork.destroy
+    redirect_to museum_path(museum)
+  end
+
+
   private
     def artwork_params
       params.require(:artwork).permit(:title, :artist, :year, :description, :museum_id, category_ids:[], categories_attributes: [:name])

@@ -1,3 +1,9 @@
+<div class="add">
+  <% if user_signed_in? %>
+    <%= link_to "Remove", category_path(@category), method: "delete" %>
+  <% end %>
+</div>
+
 <div class="show">
   <h2><%= @category.name %></h2>
 </div>

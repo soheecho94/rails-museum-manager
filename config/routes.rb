@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'application#hello'
   get '/museums/most-artworks', to: 'museums#top', as: 'top_museum'
 
-  resources :categories, only: [:index, :new, :create, :show]
+  resources :categories, only: [:index, :new, :create, :show, :destroy]
   resources :artworks, only: [:create, :update]
   resources :museums, only: [:new, :create, :edit, :update, :destroy]
   resources :museums, only: [:show] do
