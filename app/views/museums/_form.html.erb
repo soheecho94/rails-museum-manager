@@ -1,8 +1,8 @@
-<%= form_for @museum do |f| %>
+<%= form_for museum do |f| %>
   <div class:"fields_with_errors">
-    <% if @museum.errors.any? %>
+    <% if museum.errors.any? %>
       <ul>
-        <% @museum.errors.full_messages.each do |msg| %>
+        <% museum.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
@@ -29,7 +29,7 @@
 
   <div class="field">
     Or Add One (ex. New York, USA):<br>
-    <%= f.fields_for :location, @museum.build_location do |locations_fields| %>
+    <%= f.fields_for :location, museum.build_location do |locations_fields| %>
       <%= locations_fields.text_field :name %>
     <% end %>
   </div>
