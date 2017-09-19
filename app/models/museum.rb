@@ -28,12 +28,12 @@ class Museum < ApplicationRecord
   end
 
   def self.most_artworks
-    joins(:artworks).group(:id).order("count(*) DESC").limit(1)
+    joins(:artworks).group(:id).order("count(*) DESC").limit(3)
     # SELECT  "museums".*
     # FROM "museums"
     # INNER JOIN "artworks"
     # ON "artworks"."museum_id" = "museums"."id"
-    # GROUP BY "museums"."id" 
+    # GROUP BY "museums"."id"
     # ORDER BY count(*) DESC
     # LIMIT ?  [["LIMIT", 1]]
   end

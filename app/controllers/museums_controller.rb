@@ -30,7 +30,7 @@ class MuseumsController < ApplicationController
   end
 
   def top
-    @museum = Museum.most_artworks[0]
+    @museums = Museum.most_artworks
   end
 
   def destroy

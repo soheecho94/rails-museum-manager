@@ -232,3 +232,16 @@ div.field input[type=password]{
     margin: 8px 0;
     box-sizing: border-box;
 }
+
+/* top */
+div.show p a {
+  color: grey;
+  font-size: 25px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+div.show p a:hover {
+  color: #E5B655;
+}

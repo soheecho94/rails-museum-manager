@@ -1,8 +1,9 @@
 <div class="show">
-  <h2><%= @museum.name %></h2>
-  <p><%= pluralize(@museum.artworks.count, "artwork")%></p>
-</div>
-
-<div class="add">
-  <%= link_to "View Museum", museum_path(@museum) %>
+  <h2>Top 3</h2>
+  <p>
+    <% @museums.each do |museum| %>
+      <%= link_to museum.name, museum_path(museum) %><br>
+      <%= pluralize(museum.artworks.count, "artwork")%><br><br>
+    <% end %>
+  </p>
 </div>
