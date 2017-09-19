@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+
   root 'application#hello'
   get '/museums/most-artworks', to: 'museums#top', as: 'top_museum'
 
