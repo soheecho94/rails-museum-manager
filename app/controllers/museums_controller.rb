@@ -29,6 +29,10 @@ class MuseumsController < ApplicationController
     end
   end
 
+  def top
+    @museum = Museum.most_artworks[0]
+  end
+
   def destroy
     @museum = Museum.find(params[:id])
     @museum.destroy

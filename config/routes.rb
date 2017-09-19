@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'application#hello'
+  get '/museums/most-artworks', to: 'museums#top', as: 'top_museum'
 
   resources :categories, only: [:index, :new, :create, :show]
   resources :artworks, only: [:create, :update]
