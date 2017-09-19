@@ -23,10 +23,6 @@ class Museum < ApplicationRecord
     end
   end
 
-  def self.alphabetical
-    order('name ASC')
-  end
-
   def self.most_artworks
     joins(:artworks).group(:id).order("count(*) DESC").limit(3)
     # SELECT  "museums".*
