@@ -1,0 +1,4 @@
+<% if user_signed_in? %>
+  | <%= link_to "Edit", edit_museum_artwork_path(museum, artwork) %>
+  | <%= link_to "Remove", museum_artwork_path(museum, artwork), method: "delete" %>
+<% end %>

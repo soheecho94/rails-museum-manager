@@ -5,11 +5,7 @@
 </div>
 
 <div class="add" id="add">
-  <% if user_signed_in? %>
-    <%= link_to "Edit Museum", edit_museum_path(@museum) %> |
-    <%= link_to "Remove Museum", museum_path(@museum), method: "delete" %> |
-    <%= link_to "Add Artwork", new_museum_artwork_path(@museum) %><br><br>
-  <% end %>
+  <%= render partial: 'museums/signin', locals: {museum: @museum} %>
 </div>
 
 <div class="collection_list">
@@ -22,10 +18,7 @@
         <%= artwork.year %>
         <br>
         <%= link_to "View", museum_artwork_path(@museum, artwork) %>
-        <% if user_signed_in? %>
-          | <%= link_to "Edit", edit_museum_artwork_path(@museum, artwork) %>
-          | <%= link_to "Remove", museum_artwork_path(@museum, artwork), method: "delete" %>
-        <% end %>
+        <%= render partial: 'museums/collection_signin', locals: {museum: @museum, artwork: artwork} %>
       </li>
     <% end %>
   </ul>
