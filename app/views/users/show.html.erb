@@ -6,8 +6,10 @@
   <ul>
     <% @user.user_artworks.each do |user_artwork| %>
       <li>
-        <%= link_to "#{user_artwork.artwork.title} | #{user_artwork.artwork.artist} | #{user_artwork.artwork.year}", museum_artwork_path(user_artwork.artwork.museum, user_artwork.artwork)%><br>
-        <%= link_to "Remove", user_artwork_path(user_artwork), method: "delete", id: "remove" %><br>
+        <% if user_artwork%>
+          <%= link_to "#{user_artwork.artwork.title} | #{user_artwork.artwork.artist} | #{user_artwork.artwork.year}", museum_artwork_path(user_artwork.artwork.museum, user_artwork.artwork)%><br>
+          <%= link_to "Remove", user_artwork_path(user_artwork), method: "delete", id: "remove" %><br>
+        <% end %>
       </li>
     <% end %>
   </ul>
