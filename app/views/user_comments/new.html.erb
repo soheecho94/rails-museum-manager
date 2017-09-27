@@ -2,4 +2,26 @@
   <h2>Add New Comment:</h2>
 </div>
 
-<%= render partial: 'form', locals: {comments: @comments} %>
+<%= form_for @comments, url: artwork_user_comments_path do |f| %>
+
+  <div class:"fields_with_errors">
+    <% if @comments.errors.any? %>
+      <ul>
+        <% @comments.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  <div class:"fields_with_errors">
+
+  <div class="field">
+    <%= f.label :comments, 'Comment:' %><br>
+    <%= f.text_area :comments %>
+  </div>
+  <br>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
