@@ -14,4 +14,18 @@ class UserCommentsController < ApplicationController
     end
   end
 
+  def edit
+    @comments = UserComment.find_by(id: params[:id])
+  end
+
+  def update
+    @artwork = Artwork.find_by(id: params[:artwork_id])
+    @comments = UserComment.find_by(id: params[:id])
+    if @comments.update(comments: params[:user_comment][:comments])
+      redirect_to museum_artwork_path(@artwork.museum, @artwork)
+    else
+      render :edit
+    end
+  end
+
 end
