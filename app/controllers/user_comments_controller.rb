@@ -1,7 +1,11 @@
 class UserCommentsController < ApplicationController
 
   def new
-    @comment = UserComment.new
+    @comments = UserComment.new
+  end
+
+  def create
+    raise params.inspect
   end
 
 end
