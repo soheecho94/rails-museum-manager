@@ -12,8 +12,6 @@ class Museum < ApplicationRecord
   validates :name, presence: true
   validates :name, uniqueness: true
 
-  accepts_nested_attributes_for :location
-
   def location_attributes=(attributes_hash)
     if attributes_hash["name"].strip != ""
       attributes_hash.values.each do |attribute|

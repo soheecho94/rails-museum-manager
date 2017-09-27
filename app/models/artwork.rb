@@ -13,8 +13,8 @@ class Artwork < ApplicationRecord
   has_many :categories, through: :artwork_categories
   has_many :user_artworks
   has_many :users, through: :user_artworks
-
-  # accepts_nested_attributes_for :categories
+  has_many :user_comments
+  has_many :comments, through: :user_comments
 
   def museum_name=(name)
     self.museum = Museum.find_or_create_by(name: name)
