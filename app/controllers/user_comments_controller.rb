@@ -1,37 +1,43 @@
 class UserCommentsController < ApplicationController
+  before_action :artwork_var, only: [:create, :update, :destroy]
+  before_action :comments_var, only: [:edit, :update, :destroy]
 
   def new
     @comments = UserComment.new(artwork_id: params[:artwork_id], user_id: current_user.id)
   end
 
   def create
-    @artwork = Artwork.find_by(id: params[:artwork_id])
     @comments = UserComment.new(artwork_id: @artwork.id, user_id: current_user.id, comments: params[:user_comment][:comments])
     if @comments.save
-      redirect_to museum_artwork_path(@artwork.museum, @artwork)
+      redirect_to museum_artwork_path(artwork_var.museum, artwork_var)
     else
       render :new
     end
   end
 
   def edit
-    @comments = UserComment.find_by(id: params[:id])
+
   end
 
   def update
-    @artwork = Artwork.find_by(id: params[:artwork_id])
-    @comments = UserComment.find_by(id: params[:id])
-    if @comments.update(comments: params[:user_comment][:comments])
-      redirect_to museum_artwork_path(@artwork.museum, @artwork)
+    if comments_var.update(comments: params[:user_comment][:comments])
+      redirect_to museum_artwork_path(artwork_var.museum, artwork_var)
     else
       render :edit
     end
   end
 
   def destroy
-    @artwork = Artwork.find_by(id: params[:artwork_id])
-    @comments = UserComment.find_by(id: params[:id])
-    @comments.destroy
-    redirect_to museum_artwork_path(@artwork.museum, @artwork)
+    comments_var.destroy
+    redirect_to museum_artwork_path(artwork_var.museum, artwork_var)
   end
+
+  private
+    def comments_var
+      @comments = UserComment.find_by(id: params[:id])
+    end
+
+    def artwork_var
+      @artwork = Artwork.find_by(id: params[:artwork_id])
+    end
 end
