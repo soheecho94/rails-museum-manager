@@ -28,4 +28,10 @@ class UserCommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @artwork = Artwork.find_by(id: params[:artwork_id])
+    @comments = UserComment.find_by(id: params[:id])
+    @comments.destroy
+    redirect_to museum_artwork_path(@artwork.museum, @artwork)
+  end
 end

@@ -13,7 +13,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   has_many :user_artworks
-  has_many :artworks, through: :user_artworks, dependent: :destroy
+  has_many :artworks, through: :user_artworks
   has_many :user_comments
   has_many :comments, through: :user_comments
 
