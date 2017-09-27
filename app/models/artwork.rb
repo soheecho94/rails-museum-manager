@@ -14,7 +14,7 @@ class Artwork < ApplicationRecord
   has_many :user_artworks
   has_many :users, through: :user_artworks
 
-  accepts_nested_attributes_for :categories
+  # accepts_nested_attributes_for :categories
 
   def museum_name=(name)
     self.museum = Museum.find_or_create_by(name: name)

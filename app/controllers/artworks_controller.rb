@@ -5,7 +5,7 @@ class ArtworksController < ApplicationController
 
   def create
     @museum = Museum.find_by(id: params[:artwork][:museum_id])
-    @artwork = Artwork.new(artwork_params)
+    @artwork = @museum.artworks.build(artwork_params)
     if @artwork.save
       redirect_to museum_artwork_path(@museum, @artwork)
     else
