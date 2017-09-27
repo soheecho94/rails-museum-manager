@@ -12,9 +12,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
-  has_many :user_artworks
+  has_many :user_artworks, dependent: :destroy
   has_many :artworks, through: :user_artworks
-  has_many :user_comments
+  
+  has_many :user_comments, dependent: :destroy
   has_many :comments, through: :user_comments
 
   def self.from_omniauth(auth)

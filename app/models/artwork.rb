@@ -9,11 +9,14 @@
 
 class Artwork < ApplicationRecord
   belongs_to :museum
+
   has_many :artwork_categories
   has_many :categories, through: :artwork_categories
-  has_many :user_artworks
+
+  has_many :user_artworks, dependent: :destroy
   has_many :users, through: :user_artworks
-  has_many :user_comments
+  
+  has_many :user_comments, dependent: :destroy
   has_many :comments, through: :user_comments
 
   def museum_name=(name)
