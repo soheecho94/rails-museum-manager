@@ -23,10 +23,10 @@
 <div class="show">
   <p><strong>COMMENTS:</strong></p>
   <% @artwork.user_comments.each do |comment| %>
-    <%= comment.user.username %>: <%= comment.comments %> |
+    <%= comment.user.username %>: <%= comment.comments %>
     <% if current_user == comment.user %>
-      <%= link_to "Edit", edit_artwork_user_comment_path(@artwork, comment) %> |
-      <%= link_to "Remove", root_path %>
+    |  <%= link_to "Edit", edit_artwork_user_comment_path(@artwork, comment) %> |
+      <%= link_to "Remove", artwork_user_comment_path(@artwork, comment), method: "delete" %>
     <% end %>
   <% end %>
 </div>
