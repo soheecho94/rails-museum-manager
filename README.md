@@ -14,4 +14,8 @@ Run `rails server` to get started!
 
 ## Contribute
 
-[Please read here!](https://github.com/soheecho94/rails-museum-manager/blob/master/CONTRIBUTING.md)
+If you would like to contribute, please read [here!](https://github.com/soheecho94/rails-museum-manager/blob/master/CONTRIBUTING.md)
+
+## License
+
+Copyright (c) 2017 Sohee Cho. Full license [here.](https://github.com/soheecho94/rails-museum-manager/blob/master/LICENSE.md)
