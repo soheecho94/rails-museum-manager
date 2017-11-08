@@ -3,5 +3,9 @@ class ApplicationController < ActionController::Base
 
   def hello
     @museums = Museum.all
+    respond_to do |format|
+      format.html { render :hello }
+      format.json { render json: @museums }
+    end
   end
 end

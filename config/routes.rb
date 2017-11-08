@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
 
   root 'application#hello'
+  get '/hello', to: 'application#hello'
   get '/museums/most_artworks', to: 'museums#top', as: 'top_museum'
 
   resources :categories, only: [:index, :new, :create, :show, :destroy]
