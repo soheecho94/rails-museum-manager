@@ -18,6 +18,10 @@ class ArtworksController < ApplicationController
       museum_variable
       artwork_variable
     end
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @artwork }
+    end
   end
 
   def edit
