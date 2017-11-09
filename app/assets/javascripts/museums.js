@@ -14,8 +14,9 @@ $(document).ready(function() {
    renderMuseums();
 })
 
-function renderMuseums(){
+function renderMuseums() {
   $.get('/hello.json', function(data) {
+    console.log(data)
     data.forEach(function(museum) {
       var html = new Museum(museum.name, museum.id).render()
       $("#museum_list ul").append(html)
