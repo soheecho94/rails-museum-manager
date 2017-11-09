@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   resources :artworks, only:[:show] do
-    resources :user_comments, only: [:new, :create, :edit, :update, :destroy]
+    resources :user_comments, only: [:index, :new, :create, :edit, :update, :destroy]
   end
 
   resources :user_artworks, only: [:create, :destroy]
