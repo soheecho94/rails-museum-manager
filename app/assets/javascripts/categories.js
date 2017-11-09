@@ -20,7 +20,6 @@ $(document).ready(function() {
 function renderArtworks() {
   var id = $(".artwork_list").attr("id")
   $.get(`/categories/${id}/artworks`, function(data) {
-    console.log(data)
     data.forEach(function(artwork) {
       var html = new Artwork(artwork.title, artwork.year, artwork.artist, artwork.id, artwork.museum.id).render()
       $(".artwork_list ul").append(html)
