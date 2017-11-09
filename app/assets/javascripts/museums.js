@@ -13,6 +13,7 @@ class Museum {
 
 $(document).ready(function() {
    renderMuseums();
+   filterMuseums();
 })
 
 function renderMuseums() {
@@ -20,6 +21,22 @@ function renderMuseums() {
     data.forEach(function(museum) {
       var html = new Museum(museum.name, museum.id, museum.location_id).render()
       $("#museum_list ul").append(html)
+    })
+  })
+}
+
+function filterMuseums() {
+  $(".filter :submit").on('click', function(e) {
+    e.preventDefault();
+    var location = parseInt($(".filter option:selected").val());
+    $.get('/hello.json', function(data) {
+      data.forEach(function(museum) {
+        if (museum.location_id === location) {
+          var html = new Museum(museum.name, museum.id, museum.location_id).render()
+          $("#museum_list ul").text("")
+          $("#museum_list ul").append(html)
+        }
+      })
     })
   })
 }
