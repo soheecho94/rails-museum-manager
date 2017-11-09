@@ -245,3 +245,11 @@ div.show p a {
 div.show p a:hover {
   color: #E5B655;
 }
+
+/* comments */
+div.comments a {
+  color: grey;
+  font-size: 14px;
+  text-transform: lowercase;
+  text-decoration: none;
+}
