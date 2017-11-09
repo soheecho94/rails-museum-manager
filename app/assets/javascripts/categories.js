@@ -13,16 +13,19 @@ class Artwork {
   }
 }
 
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
+  console.log("ready")
    renderArtworks();
 })
 
 function renderArtworks() {
-  var id = $(".artwork_list").attr("id")
-  $.get(`/categories/${id}/artworks`, function(data) {
-    data.forEach(function(artwork) {
-      var html = new Artwork(artwork.title, artwork.year, artwork.artist, artwork.id, artwork.museum.id).render()
-      $(".artwork_list ul").append(html)
-    })
-  })
+    if (window.location.href.match(/\/categories\/(\d+)$/)) {
+      $.get(`${window.location.href}/artworks`, function(data) {
+        console.log(data)
+        data.forEach(function(artwork) {
+          var html = new Artwork(artwork.title, artwork.year, artwork.artist, artwork.id, artwork.museum.id).render()
+          $(".artwork_list ul").append(html)
+        })
+      })
+    }
 }
