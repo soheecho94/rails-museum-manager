@@ -14,7 +14,6 @@ class Artwork {
 }
 
 $(document).on('turbolinks:load', function() {
-  console.log("ready")
    renderArtworks();
 })
 
