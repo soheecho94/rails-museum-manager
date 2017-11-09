@@ -1,7 +1,8 @@
 class Museum {
-  constructor(name, id) {
+  constructor(name, id, location_id) {
     this.name = name
     this.id = id
+    this.location_id = location_id
   }
 
   render(){
@@ -16,9 +17,8 @@ $(document).ready(function() {
 
 function renderMuseums() {
   $.get('/hello.json', function(data) {
-    console.log(data)
     data.forEach(function(museum) {
-      var html = new Museum(museum.name, museum.id).render()
+      var html = new Museum(museum.name, museum.id, museum.location_id).render()
       $("#museum_list ul").append(html)
     })
   })

@@ -1,5 +1,4 @@
 <% if !params[:location].blank? %>
-  <%= binding.pry %>
   <% @museums = Museum.where(location: params[:location]) %>
 <% end %>
 
@@ -11,7 +10,6 @@
   <% end %>
   <br>
 </div>
-
 
 <div class="add">
   <% if user_signed_in? %>
