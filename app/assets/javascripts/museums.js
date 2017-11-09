@@ -19,8 +19,8 @@ $(document).ready(function() {
 function renderMuseums() {
   $.get('/hello.json', function(data) {
     data.forEach(function(museum) {
-      var html = new Museum(museum.name, museum.id, museum.location_id).render()
-      $("#museum_list ul").append(html)
+      var html = new Museum(museum.name, museum.id, museum.location_id).render();
+      $("#museum_list ul").append(html);
     })
   })
 }
