@@ -33,15 +33,19 @@ function filterMuseums() {
       $.get('/hello.json', function(data) {
         data.forEach(function(museum) {
           if (museum.location_id === location) {
-            var html = new Museum(museum.name, museum.id, museum.location_id).render()
-            $("#museum_list ul").text("")
-            $("#museum_list ul").append(html)
+            var html = new Museum(museum.name, museum.id, museum.location_id).render();
+            emptyMuseum();
+            $("#museum_list ul").append(html);
           }
         })
       })
     } else {
-      $("#museum_list ul").text("")
+      emptyMuseum();
       renderMuseums();
     }
   })
+}
+
+function emptyMuseum() {
+  $("#museum_list ul").text("")
 }
