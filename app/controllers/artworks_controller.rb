@@ -1,4 +1,11 @@
 class ArtworksController < ApplicationController
+  def index
+    if params[:category_id]
+      category = Category.find(params[:category_id])
+      render json: category.artworks
+    end
+  end
+
   def new
     @artwork = Artwork.new(museum_id: params[:museum_id])
   end

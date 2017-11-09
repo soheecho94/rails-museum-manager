@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   get '/hello', to: 'application#hello'
   get '/museums/most_artworks', to: 'museums#top', as: 'top_museum'
 
-  resources :categories, only: [:index, :new, :create, :show, :destroy]
+  resources :categories, only: [:index, :new, :create, :show, :destroy] do
+    resources :artworks, only: [:index]
+  end
+
   resources :artworks, only: [:create, :update]
   resources :museums, only: [:new, :create, :edit, :update, :destroy]
   resources :museums, only: [:show] do
