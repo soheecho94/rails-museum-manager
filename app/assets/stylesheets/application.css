@@ -208,6 +208,10 @@ div.field textarea {
     resize: none;
 }
 
+div#comments.actions {
+  margin-top: 0px;
+}
+
 
 /* sign in & sign up */
 h2 {

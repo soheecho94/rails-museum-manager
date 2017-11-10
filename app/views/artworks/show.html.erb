@@ -41,8 +41,8 @@
       <%= render partial: 'user_comments/form', locals: {f: f} %>
     <% end %>
   </div>
-
+  <br>
   <div class="actions">
-    <%= button_to 'Add to Profile', user_artworks_path(artwork_id: @artwork) %>
+    <%= button_to 'Add Artwork to Profile', user_artworks_path(artwork_id: @artwork) %>
   </div>
 <% end %>
