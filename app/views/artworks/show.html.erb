@@ -37,7 +37,7 @@
 
 <% if user_signed_in? %>
   <div class="comments-form">
-    <%= form_for @comments, url: artwork_user_comments_path(@artwork) do |f| %>
+    <%= form_for ([@artwork, @comments]) do |f| %>
       <%= render partial: 'user_comments/form', locals: {f: f} %>
     <% end %>
   </div>
