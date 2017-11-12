@@ -1,5 +1,6 @@
 $(document).on('turbolinks:load', function() {
    renderComments();
+   submitComments();
 })
 
 function renderComments() {
@@ -10,6 +11,20 @@ function renderComments() {
     var comments = artwork.user_comments
     comments.forEach(function(comment) {
       $(".comments ul").append("<li>" + comment.comments + "</li>")
+    })
+  })
+}
+
+function submitComments() {
+  $("#new_user_comment").on('submit', function(event) {
+    event.preventDefault();
+    $.ajax({
+      type: "POST",
+      url: this.action,
+      data: $(this).serialize(),
+      success: function(response){
+        $(".comments ul").append(response)
+      }
     })
   })
 }

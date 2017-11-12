@@ -36,11 +36,9 @@
 </div>
 
 <% if user_signed_in? %>
-  <div class="comments-form">
-    <%= form_for ([@artwork, @comments]) do |f| %>
-      <%= render partial: 'user_comments/form', locals: {f: f} %>
-    <% end %>
-  </div>
+  <%= form_for ([@artwork, @comments]) do |f| %>
+    <%= render partial: 'user_comments/form', locals: {f: f} %>
+  <% end %>
   <br>
   <div class="actions">
     <%= button_to 'Add Artwork to Profile', user_artworks_path(artwork_id: @artwork) %>
