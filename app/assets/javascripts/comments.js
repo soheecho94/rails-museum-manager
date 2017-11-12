@@ -1,12 +1,11 @@
-$(document).on('turbolinks:load', function() {
+$(document).on("turbolinks:load", function() {
    renderComments();
    submitComments();
 })
 
 function renderComments() {
-  var idInfo = document.getElementsByClassName('comments')[0]
-  var artworkId = idInfo.id
-  var museumId = idInfo.dataset.id
+  var artworkId = window.location.href.split("/")[6]
+  var museumId = window.location.href.split("/")[4]
   $.get(`/museums/${museumId}/artworks/${artworkId}.json`, function(artwork) {
     var comments = artwork.user_comments
     comments.forEach(function(comment) {
