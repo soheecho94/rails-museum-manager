@@ -2,6 +2,11 @@ class UserCommentsController < ApplicationController
   before_action :artwork_var, only: [:create, :update, :destroy]
   before_action :comments_var, only: [:edit, :update, :destroy]
 
+  def index
+    @comments = UserComment.all
+    render json: @comments
+  end
+
   def new
     @comments = UserComment.new(artwork_id: params[:artwork_id], user_id: current_user.id)
   end

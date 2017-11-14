@@ -24,7 +24,9 @@ class ArtworksController < ApplicationController
     if params[:museum_id]
       museum_variable
       artwork_variable
-      @comments = UserComment.new(artwork_id: @artwork.id, user_id: current_user.id)
+      if user_signed_in?
+        @comments = UserComment.new(artwork_id: @artwork.id, user_id: current_user.id)
+      end
     end
     respond_to do |format|
       format.html { render :show }

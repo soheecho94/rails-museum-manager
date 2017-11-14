@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'application#hello'
   get '/hello', to: 'application#hello'
   get '/museums/most_artworks', to: 'museums#top', as: 'top_museum'
+  get '/current_user', to: 'users#get_current'
 
   resources :categories, only: [:index, :new, :create, :show, :destroy] do
     resources :artworks, only: [:index]
