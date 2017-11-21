@@ -212,7 +212,6 @@ div#comments.actions {
   margin-top: 0px;
 }
 
-
 /* sign in & sign up */
 h2 {
   color: #35363B;
@@ -256,4 +255,8 @@ div.comments a {
   font-size: 14px;
   text-transform: lowercase;
   text-decoration: none;
+}
+
+div.comments ul {
+  list-style-type: none;
 }
