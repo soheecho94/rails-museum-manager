@@ -21,18 +21,8 @@
 </div>
 
 <div class="comments" id="<%=@artwork.id%>" data-id="<%=@artwork.museum.id%>">
-  <p><strong>COMMENTS:</strong></p>
   <ul>
   </ul>
-  <!-- <% @artwork.user_comments.each do |comment| %>
-    <li>
-      <%= comment.user.username %>: <%= comment.comments %>
-      <% if current_user == comment.user %>
-        <%= link_to "Edit", edit_artwork_user_comment_path(@artwork, comment) %> |
-        <%= link_to "Remove", artwork_user_comment_path(@artwork, comment), method: "delete" %>
-      <% end %>
-    </li>
-  <% end %> -->
 </div>
 
 <% if user_signed_in? %>
