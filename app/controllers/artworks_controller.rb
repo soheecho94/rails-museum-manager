@@ -60,6 +60,11 @@ class ArtworksController < ApplicationController
     redirect_to museum_path(@museum)
   end
 
+  def body
+    @museum = Museum.find_by(id: params[:id])
+    @artwork = @museum.artworks.find_by(id: params[:artwork_id])
+    render plain: @artwork.description
+  end
 
   private
     def artwork_params
