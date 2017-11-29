@@ -6,13 +6,14 @@
   <% end %>
 </div>
 
-<div class="show">
+<div class="artwork_show">
   <h2><%= @artwork.title %></h2>
-  <p id=artwork><strong>ARTIST:</strong> <%= @artwork.artist %></p>
-  <p id=artwork><strong>YEAR CREATED:</strong> <%= @artwork.year %></p>
-  <p id=artwork><strong>DESCRIPTION:</strong> <%= @artwork.description %></p>
+  <p><strong>ARTIST:</strong> <%= @artwork.artist %></p>
+  <p><strong>YEAR CREATED:</strong> <%= @artwork.year %></p>
+  <p><strong>DESCRIPTION:</strong> <%= truncate @artwork.description, length: 80, separator: ' ' %></p>
+  <button class="js-more" data-id="<%= @artwork.id %>">Read More</button>
 </div>
-
+<br>
 <div class="categories_list">
     <strong>CATEGORIES:</strong>
     <% @artwork.categories.each do |category| %>

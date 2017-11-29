@@ -121,7 +121,7 @@ div.collection_list ul li a:hover {
 }
 
 /* artwork show page */
-div.show p#artwork {
+div.artwork_show p {
   margin: 10px;
 }
 
