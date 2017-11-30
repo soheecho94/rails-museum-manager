@@ -1,10 +1,13 @@
-<div class="add">
-  <% if user_signed_in? %>
+<% if user_signed_in? %>
+  <div class="actions">
+  <%= button_to 'Add Artwork to Profile', user_artworks_path(artwork_id: @artwork) %>
+  </div>
+  <br>
+  <div class="add">
     <%= link_to "Edit", edit_museum_artwork_path(@artwork.museum, @artwork) %> |
     <%= link_to "Remove", museum_artwork_path(@artwork.museum, @artwork), method: "delete" %>
-    <!-- <%= link_to "Comment", new_artwork_user_comment_path(@artwork) %> -->
-  <% end %>
-</div>
+  </div>
+<% end %>
 
 <div class="artwork_show">
   <h2><%= @artwork.title %></h2>
@@ -31,8 +34,4 @@
   <%= form_for ([@artwork, @comments]) do |f| %>
     <%= render partial: 'user_comments/form', locals: {f: f} %>
   <% end %>
-  <br>
-  <div class="actions">
-    <%= button_to 'Add Artwork to Profile', user_artworks_path(artwork_id: @artwork) %>
-  </div>
 <% end %>

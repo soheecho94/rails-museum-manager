@@ -14,7 +14,7 @@ class UserCommentsController < ApplicationController
   def create
     @comments = UserComment.new(artwork_id: @artwork.id, user_id: current_user.id, comments: params[:user_comment][:comments])
     if @comments.save
-      redirect_to museum_artwork_path(artwork_var.museum, artwork_var)
+      render json: @comments
     else
       render :new
     end

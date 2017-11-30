@@ -40,7 +40,7 @@ function submitComments() {
       url: this.action,
       data: $(this).serialize(),
       success: function(response){
-        $(".comments ul").append(response)
+        $(".comments ul").append(response.comments)
       }
     })
   })
