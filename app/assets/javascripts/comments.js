@@ -40,7 +40,8 @@ function submitComments() {
       url: this.action,
       data: $(this).serialize(),
       success: function(response){
-        $(".comments ul").append(response.comments)
+        $("textarea#user_comment_comments").val("")
+        $(".comments ul").append("<li>" + response.user.username + ": " + response.comments + "</li>" + `<a href="/artworks/${response.artwork.id}/user_comments/${response.id}/edit">` + "Edit" + "</a>")
       }
     })
   })
