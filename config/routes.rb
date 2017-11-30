@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   get '/hello', to: 'application#hello'
   get '/museums/most_artworks', to: 'museums#top', as: 'top_museum'
   get '/current_user', to: 'users#get_current'
-  get '/museums/:id/artworks/:artwork_id/body', to: 'artworks#body'
 
   resources :categories, only: [:index, :new, :create, :show, :destroy] do
     resources :artworks, only: [:index]

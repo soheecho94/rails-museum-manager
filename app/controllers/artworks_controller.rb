@@ -60,12 +60,6 @@ class ArtworksController < ApplicationController
     redirect_to museum_path(@museum)
   end
 
-  def body
-    @museum = Museum.find_by(id: params[:id])
-    @artwork = @museum.artworks.find_by(id: params[:artwork_id])
-    render plain: @artwork.description
-  end
-
   private
     def artwork_params
       params.require(:artwork).permit(:title, :artist, :year, :description, :museum_id, category_ids:[], categories_attributes: [:name])
