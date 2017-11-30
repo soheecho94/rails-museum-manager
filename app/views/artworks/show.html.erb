@@ -1,3 +1,5 @@
+<a href="#" class="js-next" data-id="<%=@artwork.id%>" data-museum="<%=@artwork.museum.id%>">NEXT</a>
+
 <% if user_signed_in? %>
   <div class="actions">
   <%= button_to 'Add Artwork to Profile', user_artworks_path(artwork_id: @artwork) %>
@@ -11,10 +13,10 @@
 
 <div class="artwork_show">
   <h2><%= @artwork.title %></h2>
-  <p><strong>ARTIST:</strong> <%= @artwork.artist %></p>
-  <p><strong>YEAR CREATED:</strong> <%= @artwork.year %></p>
+  <p id="artist"><strong>ARTIST:</strong> <%= @artwork.artist %></p>
+  <p id="year"><strong>YEAR CREATED:</strong> <%= @artwork.year %></p>
   <p id="body-<%= @artwork.id %>"><strong>DESCRIPTION:</strong> <%= truncate @artwork.description, length: 80, separator: ' ' %></p>
-  <button class="js-more" data-id="<%= @artwork.id %>" data-museum="<%= @artwork.museum.id %>">Read More</button>
+  <button class="read-more" data-id="<%= @artwork.id %>" data-museum="<%= @artwork.museum.id %>">Read More</button>
 </div>
 <br>
 

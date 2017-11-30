@@ -1,5 +1,5 @@
 class MuseumsController < ApplicationController
-  before_action :museum_var, only: [:show, :edit, :update, :destroy]
+  before_action :museum_var, only: [:show, :edit, :update, :destroy, :collection]
 
   def new
     @museum = Museum.new
@@ -35,6 +35,11 @@ class MuseumsController < ApplicationController
   def destroy
     @museum.destroy
     redirect_to root_path
+  end
+
+  def collection
+    @artworks = @museum.artworks
+    render json: @artworks
   end
 
   private
