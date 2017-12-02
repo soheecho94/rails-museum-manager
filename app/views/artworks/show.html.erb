@@ -15,8 +15,8 @@
   <h2><%= @artwork.title %></h2>
   <p id="artist"><strong>ARTIST:</strong> <%= @artwork.artist %></p>
   <p id="year"><strong>YEAR CREATED:</strong> <%= @artwork.year %></p>
-  <p id="body-<%= @artwork.id %>"><strong>DESCRIPTION:</strong> <%= truncate @artwork.description, length: 80, separator: ' ' %></p>
-  <button class="read-more" data-id="<%= @artwork.id %>" data-museum="<%= @artwork.museum.id %>">Read More</button>
+  <p id="description"><strong>DESCRIPTION:</strong> <%= @artwork.description %></p>
+  <!-- <button class="read-more" data-id="<%= @artwork.id %>" data-museum="<%= @artwork.museum.id %>">Read More</button> -->
 </div>
 <br>
 

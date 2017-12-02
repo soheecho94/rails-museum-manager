@@ -12,11 +12,11 @@ function renderComments() {
   var museumId = window.location.href.split("/")[4]
   $.get(`/artworks/${artworkId}/user_comments`, function(comments) {
     comments.forEach(function(comment) {
-      if (current_user.username === comment.user.username && parseInt(artworkId) === comment.artwork.id) {
+      if (current_user && current_user.username === comment.user.username && parseInt(artworkId) === comment.artwork.id) {
         $(".comments ul").append("<li>" + comment.user.username + ": " + comment.comments + "</li>" + `<a href="/artworks/${artworkId}/user_comments/${comment.id}/edit">` + "Edit" + "</a>")
       } else if (parseInt(artworkId) !== comment.artwork.id) {
         $(".comments ul").append("")
-      } else if (current_user.username !== comment.user.username && parseInt(artworkId) === comment.artwork.id) {
+      } else if (current_user && current_user.username !== comment.user.username && parseInt(artworkId) === comment.artwork.id) {
         $(".comments ul").append("<li>" + comment.user.username + ": " + comment.comments + "</li>")
       }
     })
