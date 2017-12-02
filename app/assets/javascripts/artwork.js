@@ -2,16 +2,6 @@ $(document).on("turbolinks:load", function() {
   next();
 })
 
-// function readMore() {
-//   $(".read-more").on('click', function() {
-//     var artworkId = $(this).data("id");
-//     var museumId = $(this).data("museum");
-//     $.get("/museums/" + museumId + "/artworks/" + artworkId + ".json", function(artwork) {
-//       $("#body-" + artworkId).text(artwork.description);
-//     });
-//   });
-// }
-
 function next() {
   $(".js-next").on("click", function(event) {
     event.preventDefault();
@@ -30,18 +20,3 @@ function next() {
     })
   })
 }
-
-
-
-// $(function () {
-//   $(".js-next").on("click", function() {
-//     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
-//     $.get("/posts/" + nextId + ".json", function(data) {
-//       $(".authorName").text(data["author"]["name"]);
-//       $(".postTitle").text(data["title"]);
-//       $(".postBody").text(data["description"]);
-//       // re-set the id to current on the link
-//       $(".js-next").attr("data-id", data["id"]);
-//     });
-//   });
-// });
