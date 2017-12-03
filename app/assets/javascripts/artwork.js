@@ -31,7 +31,7 @@ function next() {
       //     $(".comments ul").append("<li>" + comment.user.username + ": " + comment.comments + "</li>")
       //   }
       // })
-
+      $(".button_to").attr('action', `/user_artworks?artwork_id=${nextArtworkData.id}`)
       $(".new_user_comment").attr('action', `/artworks/${nextArtworkData.id}/user_comments`)
     })
   })
