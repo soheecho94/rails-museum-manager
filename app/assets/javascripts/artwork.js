@@ -10,6 +10,7 @@ function next() {
       var artworkId = parseInt($(".js-next").attr("data-id"));
       var nextArtworkIndex = artworks.findIndex(artwork => artwork.id === artworkId) + 1;
       var nextArtworkData = artworks[nextArtworkIndex]
+      var nextArtworkId = nextArtworkData.id
       var categories = nextArtworkData.categories
       var comments = nextArtworkData.user_comments
       $(".artwork_show h2").text(nextArtworkData.title)
@@ -21,32 +22,20 @@ function next() {
         $(".categories_list").html(`<strong>CATEGORIES: </strong><a href="/categories/${category.id}">${category.name}</a>` + " | ")
       })
 
-      // getCurrentUser();
-      // comments.forEach(function(comment) {
-      //   if (current_user && current_user.username === comment.user.username && parseInt(artworkId) === comment.artwork.id) {
-      //     $(".comments ul").append("<li>" + comment.user.username + ": " + comment.comments + "</li>" + `<a href="/artworks/${artworkId}/user_comments/${comment.id}/edit">` + "Edit" + "</a>")
-      //   } else if (parseInt(artworkId) !== comment.artwork.id) {
-      //     $(".comments ul").append("")
-      //   } else if (current_user && current_user.username !== comment.user.username && parseInt(artworkId) === comment.artwork.id) {
-      //     $(".comments ul").append("<li>" + comment.user.username + ": " + comment.comments + "</li>")
-      //   }
-      // })
+      getCurrentUser();
+      $(".comments ul").text("")
+      comments.forEach(function(comment) {
+        if (current_user && current_user.username === comment.username && parseInt(nextArtworkId) === comment.artwork_id) {
+          $(".comments ul").append("<li>" + comment.username + ": " + comment.comments + "</li>" + `<a href="/artworks/${artworkId}/user_comments/${comment.id}/edit">` + "Edit" + "</a>")
+        } else if (parseInt(nextArtworkId) !== comment.artwork_id) {
+          $(".comments ul").append("")
+        } else if (current_user && current_user.username !== comment.username && parseInt(nextArtworkId) === comment.artwork_id) {
+          $(".comments ul").append("<li>" + comment.username + ": " + comment.comments + "</li>")
+        }
+      })
+
       $(".button_to").attr('action', `/user_artworks?artwork_id=${nextArtworkData.id}`)
       $(".new_user_comment").attr('action', `/artworks/${nextArtworkData.id}/user_comments`)
     })
   })
 }
-
-// function renderCommentsOnNext() {
-//   getCurrentUser();
-//   var comments = nextArtworkData.user_comments
-//     comments.forEach(function(comment) {
-//       if (current_user && current_user.username === comment.user.username && parseInt(artworkId) === comment.artwork.id) {
-//         $(".comments ul").append("<li>" + comment.user.username + ": " + comment.comments + "</li>" + `<a href="/artworks/${artworkId}/user_comments/${comment.id}/edit">` + "Edit" + "</a>")
-//       } else if (parseInt(artworkId) !== comment.artwork.id) {
-//         $(".comments ul").append("")
-//       } else if (current_user && current_user.username !== comment.user.username && parseInt(artworkId) === comment.artwork.id) {
-//         $(".comments ul").append("<li>" + comment.user.username + ": " + comment.comments + "</li>")
-//       }
-//     })
-// }
