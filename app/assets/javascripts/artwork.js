@@ -2,7 +2,6 @@ $(document).on("turbolinks:load", function() {
   store.state.artworkIds = $('#artwork-ids').data("artwork-ids");
   store.state.currentArtworkId = $(".js-next").data("id");
   store.state.currentUser = $('#current-user').data("current-user");
-console.log(store.state)
   next();
 })
 
