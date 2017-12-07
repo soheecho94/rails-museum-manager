@@ -13,6 +13,7 @@ function next() {
       var nextArtworkId = nextArtworkData.id
       var categories = nextArtworkData.categories
       var comments = nextArtworkData.user_comments
+
       $(".artwork_show h2").text(nextArtworkData.title)
       $(".artwork_show p#artist").html("<strong>ARTIST: </strong>" + nextArtworkData.artist)
       $(".artwork_show p#year").html("<strong>YEAR CREATED: </strong>" + nextArtworkData.year)
