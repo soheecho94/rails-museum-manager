@@ -1,8 +1,9 @@
 <div id="artwork-ids" data-artwork-ids="<%= @artwork.museum.artwork_ids %>"></div>
-<div id="current-user" data-current-user="<%= { id: current_user.id, email: current_user.email }.to_json %>"></div>
 <a href="#" class="js-next" data-id="<%=@artwork.id%>" data-museum="<%=@artwork.museum.id%>">NEXT</a>
 
 <% if user_signed_in? %>
+  <div id="current-user" data-current-user="<%= { id: current_user.id, email: current_user.email }.to_json %>"></div>
+
   <div class="actions">
   <%= button_to 'Add Artwork to Profile', user_artworks_path(artwork_id: @artwork) %>
   </div>
