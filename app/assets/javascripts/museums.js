@@ -28,7 +28,7 @@ function renderMuseums() {
 function filterMuseums() {
   $(".filter :submit").on('click', function(e) {
     e.preventDefault();
-    emptyMuseum();
+    $("#museum_list ul").text("")
     var location = parseInt($(".filter option:selected").val());
     if(location){
       $.get('/hello.json', function(data) {
@@ -40,12 +40,8 @@ function filterMuseums() {
         })
       })
     } else {
-      emptyMuseum();
+      $("#museum_list ul").text("")
       renderMuseums();
     }
   })
-}
-
-function emptyMuseum() {
-  $("#museum_list ul").text("")
 }
