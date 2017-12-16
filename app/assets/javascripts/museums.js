@@ -28,8 +28,8 @@ function renderMuseums() {
 function filterMuseums() {
   $(".filter :submit").on('click', function(e) {
     e.preventDefault();
-    var location = parseInt($(".filter option:selected").val());
     emptyMuseum();
+    var location = parseInt($(".filter option:selected").val());
     if(location){
       $.get('/hello.json', function(data) {
         data.forEach(function(museum) {
