@@ -29,12 +29,12 @@ function filterMuseums() {
   $(".filter :submit").on('click', function(e) {
     e.preventDefault();
     var location = parseInt($(".filter option:selected").val());
+    emptyMuseum();
     if(location){
       $.get('/hello.json', function(data) {
         data.forEach(function(museum) {
           if (museum.location_id === location) {
             var html = new Museum(museum.name, museum.id, museum.location_id).render();
-            emptyMuseum();
             $("#museum_list ul").append(html);
           }
         })
